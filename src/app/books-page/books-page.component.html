@@ -1,0 +1,16 @@
+<h2 class="title">Book`s list</h2>
+<ul class="list" *ngIf="books">
+  <li class="list__item" *ngFor="let book of books" (click)="onSelect(book)">
+    
+      {{book.title}}
+    
+    <p class="list__item-inner">
+      {{book.author}}
+    </p>
+    <p class="list__item-inner">
+      {{book.language}}
+    </p>
+  </li>
+</ul>
+
+<app-books-details [book]='selectedBook'></app-books-details>
