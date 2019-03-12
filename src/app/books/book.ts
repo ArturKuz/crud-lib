@@ -1,6 +1,6 @@
 
 export class Book {
-    
+    id: number;
     author: string;
     country: string;
     imageLink: string;

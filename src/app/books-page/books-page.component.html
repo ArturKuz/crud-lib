@@ -1,16 +1,45 @@
-<h2 class="title">Book`s list</h2>
-<ul class="list" *ngIf="books">
-  <li class="list__item" *ngFor="let book of books" (click)="onSelect(book)">
-    
-      {{book.title}}
-    
-    <p class="list__item-inner">
-      {{book.author}}
-    </p>
-    <p class="list__item-inner">
-      {{book.language}}
-    </p>
-  </li>
-</ul>
+<div class="container">
+  <h2 class="title">Book`s list</h2>
 
-<app-books-details [book]='selectedBook'></app-books-details>
+  <div class="grid">
+    <section class="col">
+      <ul class="list" *ngIf="books">
+        <li
+          class="list__item"
+          *ngFor="let book of books"
+          (click)="onSelect(book)"
+        >
+          <a routerLink="/detail/{{ book.id }}">
+            {{ book.title }}
+
+            <p class="list__item-inner">
+              {{ book.author }}
+            </p>
+            <p class="list__item-inner">
+              {{ book.language }}
+            </p>
+          </a>
+          <button class="delete" title="delete book"
+          (click)="delete(book)">
+            x
+          </button>
+        </li>
+      </ul>
+    </section>
+    <!-- <section class="col">
+      <app-books-details [book]="selectedBook" ></app-books-details>
+    </section> -->
+    <section class="col">
+      <div>
+        <label>Book title:
+          <input #bookTitle />
+        </label>
+
+        <button (click)="add(bookTitle.value); bookTitle.value=''">
+          add
+        </button>
+      </div>
+    </section>
+     <app-book-search></app-book-search>
+  </div>
+</div>
