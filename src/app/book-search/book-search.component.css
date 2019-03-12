@@ -1,7 +1,7 @@
 .p-search {
   text-align: center;
   position: relative;
-  border-bottom: 1px solid rgba(136, 136, 207, 0.7);
+  border-bottom: 1px solid rgba(125, 156, 178, 0.7);
   margin-bottom: 2rem;
   min-height: 100px;
 }
@@ -9,7 +9,7 @@
   width: 20rem;
   border: none;
   outline: none;
-  border-bottom: 2px solid #8888cf;
+  border-bottom: 2px solid #7d9cb2;
   font-size: 1.5rem;
   padding: 5px 10px;
 }
@@ -34,7 +34,8 @@
   margin: 0.5rem;
 }
 .p-search .p-search__result-link {
-  color: #fff;
+  color: #eee;
+  text-decoration: none;
 }
 .p-search .lable {
   font-size: 2rem;

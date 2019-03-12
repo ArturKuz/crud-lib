@@ -1,47 +1,37 @@
 <main class=" grid">
-  <section class="col">
-    <label
-      >Book title:
-      <input #bookTitle />
-    </label>
-
-    <button (click)="add(bookTitle.value); bookTitle.value = ''">
-      add
+  <section class="row  bg--light-gray">
+    <button class="btn btn--add" (click)="add(bookTitle.value); bookTitle.value = ''">    
+      add book
     </button>
+    <input #bookTitle />
   </section>
-<section class="col">
- <ul class="col__header">
-      <li class="col__header-item">Title</li>
-      <li class="col__header-item">Author</li>
-      <li class="col__header-item">Language</li>
+  <section class="row">
+    <ul class="list__header bg--light-gray">
+      <li class="list__header-item t--dark-gray">Title</li>
+      <li class="list__header-item t--dark-gray">Author</li>
+      <li class="list__header-item t--dark-gray">Language</li>
     </ul>
-</section>
-  <section class="col">
+  </section>
+  <section class="row">
 
-    <div class="col">
-      <ul class="list" *ngIf="books">
-        <li
-          class="list__item"
-          *ngFor="let book of books"
-          (click)="onSelect(book)"
-        >
-          <a routerLink="/detail/{{ book?.id }}">
-            {{ book.title }}
-
-            <p class="list__item-inner">
-              {{ book.author }}
-            </p>
-            <p class="list__item-inner">
-              {{ book.language }}
-            </p>
+    <div class="row">
+      <ul class="list bg--light-gray" *ngIf="books">
+        <li class="list__item" *ngFor="let book of books" (click)="onSelect(book)">
+          <a class="link" routerLink="/detail/{{ book?.id }}">
+            <ul class="list-inner">
+              <li class="list-inner__item t--white">{{ book.title }}</li>
+              <li class="list-inner__item t--white">{{ book.author }}</li>
+              <li class="list-inner__item t--white">{{ book.language }}</li>
+            </ul>
           </a>
-          <button class="delete" title="delete book" (click)="delete(book)">
-            x
+
+          <button class="btn btn--delete" title="delete book" (click)="delete(book)">
+            Delete
           </button>
         </li>
       </ul>
     </div>
-    <!-- <section class="col">
+    <!-- <section class="row">
       <app-books-details [book]="selectedBook" ></app-books-details>
     </section> -->
   </section>

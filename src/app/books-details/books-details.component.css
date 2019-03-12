@@ -1,0 +1,47 @@
+.grid {
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto;
+}
+.grid .row {
+  flex-basis: 50%;
+}
+.grid .row--p {
+  padding: 5%;
+}
+.grid .list {
+  list-style: none;
+  flex-basis: 50%;
+  margin-top: 0;
+}
+.grid .list__item {
+  padding: 5%;
+}
+.flex {
+  display: flex;
+}
+.flex--space-around {
+  justify-content: space-around;
+}
+.btn {
+  padding: 5px 10px;
+}
+.btn--back:hover {
+  background: #B28DA5;
+}
+.btn--save:hover {
+  background: #8CB287;
+}
+.bg--light-gray {
+  background-color: #eee;
+}
+.bg--light-blue {
+  background-color: #607D8B;
+}
+.t--dark-gray {
+  color: #607D8B;
+}
+.t--white {
+  color: #fff;
+}

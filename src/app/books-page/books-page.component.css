@@ -5,14 +5,17 @@
   width: 50%;
   margin: 0 auto;
 }
-.grid .col {
+.grid .row {
   flex-basis: 50%;
 }
-.grid .col__header {
+.grid .list__header {
   display: flex;
+  list-style: none;
+  margin: 0 ;
+  padding: 5%;
 }
-.grid .col__header-item {
-  flex-basis: 30%;
+.grid .list__header-item {
+  flex-basis: 33%;
 }
 .grid .list {
   height: 70vh;
@@ -22,38 +25,41 @@
   padding: 0;
 }
 .grid .list__item {
-  cursor: pointer;
   position: relative;
   left: 0;
-  background-color: #EEE;
-  margin: .5em;
+  background-color: #607D8B;
+  margin: .5em 0;
   padding: .3em 0;
   border-radius: 4px;
 }
 .grid .list__item:hover {
+  background-color: #7D9CB2;
+}
+.grid .list-inner {
+  list-style: none;
+  display: flex;
+  padding: 5%;
+}
+.grid .list-inner__item {
+  flex-basis: 33%;
+}
+.grid .link {
+  text-decoration: none;
+  color: #fff;
+}
+.grid .btn {
+  padding: 5px 10px;
+  margin: 2% 5%;
+}
+.grid .btn--delete:hover {
+  background: #B28DA5;
+}
+.grid .btn--add:hover {
+  background: #8CB287;
+}
+.grid .bg--light-gray {
+  background-color: #eee;
+}
+.grid .t--dark-gray {
   color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
-}
-.grid .list__item-inner {
-  font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color: #607D8B;
-  line-height: 1em;
-  height: 1.8em;
-  margin-right: .8em;
-  border-radius: 4px 0 0 4px;
-}
-.grid .list__item-inner.selected:hover {
-  background-color: #BBD8DC !important;
-  color: white;
-}
-.grid .selected {
-  background-color: #CFD8DC !important;
-  color: white;
-}
-.grid .list .text {
-  position: relative;
-  top: -3px;
 }
