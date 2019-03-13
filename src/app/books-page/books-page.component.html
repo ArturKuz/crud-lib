@@ -1,9 +1,9 @@
 <main class=" grid">
   <section class="row  bg--light-gray">
-    <button class="btn btn--add" (click)="add(bookTitle.value); bookTitle.value = ''">    
-      add book
-    </button>
-    <input #bookTitle />
+    <!-- <button class="btn btn--add" (click)="add(bookTitle.value); bookTitle.value = ''"> -->
+      <!-- add book -->
+    <!-- </button> -->
+    <!-- <input #bookTitle /> -->
   </section>
   <section class="row">
     <ul class="list__header bg--light-gray">
@@ -16,23 +16,61 @@
 
     <div class="row">
       <ul class="list bg--light-gray" *ngIf="books">
-        <li class="list__item" *ngFor="let book of books" (click)="onSelect(book)">
+        <li class="list__item" *ngFor="let book of books" >
           <a class="link" routerLink="/detail/{{ book?.id }}">
             <ul class="list-inner">
               <li class="list-inner__item t--white">{{ book.title }}</li>
               <li class="list-inner__item t--white">{{ book.author }}</li>
-              <li class="list-inner__item t--white">{{ book.language }}</li>
+              <li class="list-inner__item t--white">{{ book.language}}</li>
             </ul>
           </a>
 
           <button class="btn btn--delete" title="delete book" (click)="delete(book)">
             Delete
           </button>
+          <!-- <button class="btn btn--edit" title="delete book" (click)="edit(book)"> -->
+            <!-- Edit -->
+          <!-- </button> -->
         </li>
       </ul>
     </div>
-    <!-- <section class="row">
-      <app-books-details [book]="selectedBook" ></app-books-details>
-    </section> -->
   </section>
+
+    <!-- <section class="row">
+      <form [formGroup]="Add" novalidate class="form">
+        <div class="form-group">
+          <label for="bookId">Book Id:</label>
+          <input type="number" formControlName="id" placeholder="Id" name="bookId" class="form-control" id="bookId">
+        </div>
+
+        <div class="form-group">
+          <label for="bookName">Book Name:</label>
+          <input formControlName="b_title" placeholder="Book Name" name="bookName" class="form-control" id="bookName">
+          <div class="alert  alert-danger" *ngIf="addForm.get('b_title').hasError('required') && addForm.get('title').touched">
+            Book Name is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="bookAuthor">Book Author:</label>
+          <input formControlName="b_author" placeholder="Book Author" name="bookAuthor" class="form-control" id="bookAuthor">
+          <div class="alert  alert-danger" *ngIf="addForm.get('b_author').hasError('maxlength') && addForm.get('author').touched">
+            Book Author is required and should less than 9 characters.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="bookLang">book Lang:</label>
+          <input formControlName="b_lang" placeholder="Book Lang" name="bookLang" class="form-control" id="bookLang">
+          <div class="alert  alert-danger" *ngIf=" addForm.get('b_lang').hasError('maxlength') && addForm.get('lang').touched">
+            Lang is required and should less than 3 characters.
+          </div>
+        </div>
+        <button class="btn btn-success" [disabled]='addForm.invalid' *ngIf="btnvisibility" (click)="onSubmit()">Save</button>
+        <button class="btn btn-success" [disabled]='addForm.invalid' *ngIf="!btnvisibility" (click)="onUpdate()">Update</button>
+        <button class="btn btn-success" [disabled]='addForm.invalid' *ngIf="btnvisibility" (click)="onSubmit()">Save</button>
+
+
+       </form>
+    </section> -->
 </main>

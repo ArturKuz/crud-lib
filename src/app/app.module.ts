@@ -13,6 +13,7 @@ import { BooksDetailsComponent } from './books-details/books-details.component';
 import { BookSearchComponent } from './book-search/book-search.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { HeaderComponent } from './header/header.component';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     HttpClientModule,
+
   //  The HttpClientInMemoryWebApiModule module intercepts HTTP requests
   //   and returns simulated server responses.
   //   Remove it when a real server is ready to receive requests.

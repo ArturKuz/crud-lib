@@ -126,11 +126,11 @@ export class InMemoryDataService {
 
   // Overrides the genId method to ensure that a book always has an id.
   // If the books array is empty,
-  // the method below returns the initial number (11).
+  // the method below returns the initial number (1).
   // if the books array is not empty, the method below returns the highest
   // book id + 1.
   genId(books: Book[]): number {
-    return books.length > 0 ? Math.max(...books.map(book => book.id)) + 1 : 11;
+    return books.length > 0 ? Math.max(...books.map(book => book.id)) + 1 : 1;
   }
   constructor() { }
 }
