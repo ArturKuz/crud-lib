@@ -1,10 +1,22 @@
-.container{
-  .grid{
+.grid{
+
     display: flex;
-  }
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+
   .col{
-    flex-basis: 30%;
-    margin-left: 2%;
+    flex-basis: 50%;
+    &__header{
+      display: flex;
+
+      &-item{
+        flex-basis: 30%;
+
+      }
+    }
+
   }
 
   .list {

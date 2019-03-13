@@ -11,13 +11,17 @@ import { FormsModule} from '@angular/forms';
 import { BooksPageComponent } from './books-page/books-page.component';
 import { BooksDetailsComponent } from './books-details/books-details.component';
 import { BookSearchComponent } from './book-search/book-search.component';
+import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BooksPageComponent,
     BooksDetailsComponent,
-    BookSearchComponent
+    BookSearchComponent,
+    LoginComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

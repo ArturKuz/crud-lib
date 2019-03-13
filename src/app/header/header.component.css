@@ -1,0 +1,7 @@
+.p-header {
+  min-height: 130px;
+  text-align: center;
+}
+.p-header .title {
+  font-size: 4rem;
+}

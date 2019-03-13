@@ -1,13 +1,18 @@
-<div id="search-component">
-    <h4>Book Search</h4>
-
-    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
-
-    <ul class="search-result">
-      <li *ngFor="let book of books$ | async" >
-        <a routerLink="/detail/{{book.id}}">
-          {{book.title}}
-        </a>
-      </li>
-    </ul>
-  </div>
+<div class="p-search" id="search-component">
+  <label class="lable">
+    Book Search
+    <input
+      class="p-search__box"
+      #searchBox
+      id="search-box"
+      (input)="search(searchBox.value)"
+    />
+  </label>
+  <ul class="p-search__result">
+    <li class="p-search__result-item" *ngFor="let book of (books$ | async)">
+      <a class="p-search__result-link" routerLink="/detail/{{ book.id }}">
+        {{ book.title }}
+      </a>
+    </li>
+  </ul>
+</div>

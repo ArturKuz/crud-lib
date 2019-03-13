@@ -1,8 +1,24 @@
-<div class="container">
-  <h2 class="title">Book`s list</h2>
+<main class=" grid">
+  <section class="col">
+    <label
+      >Book title:
+      <input #bookTitle />
+    </label>
 
-  <div class="grid">
-    <section class="col">
+    <button (click)="add(bookTitle.value); bookTitle.value = ''">
+      add
+    </button>
+  </section>
+<section class="col">
+ <ul class="col__header">
+      <li class="col__header-item">Title</li>
+      <li class="col__header-item">Author</li>
+      <li class="col__header-item">Language</li>
+    </ul>
+</section>
+  <section class="col">
+
+    <div class="col">
       <ul class="list" *ngIf="books">
         <li
           class="list__item"
@@ -19,27 +35,14 @@
               {{ book.language }}
             </p>
           </a>
-          <button class="delete" title="delete book"
-          (click)="delete(book)">
+          <button class="delete" title="delete book" (click)="delete(book)">
             x
           </button>
         </li>
       </ul>
-    </section>
+    </div>
     <!-- <section class="col">
       <app-books-details [book]="selectedBook" ></app-books-details>
     </section> -->
-    <section class="col">
-      <div>
-        <label>Book title:
-          <input #bookTitle />
-        </label>
-
-        <button (click)="add(bookTitle.value); bookTitle.value=''">
-          add
-        </button>
-      </div>
-    </section>
-     <app-book-search></app-book-search>
-  </div>
-</div>
+  </section>
+</main>
