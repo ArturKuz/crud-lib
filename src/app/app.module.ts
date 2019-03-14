@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule} from '@angular/forms';
@@ -14,7 +13,9 @@ import { BookSearchComponent } from './book-search/book-search.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { AddBookComponent } from './add-book/add-book.component';
+import { EditBookComponent } from './edit-book/edit-book.component';
+import {AuthGuard} from './auth/auth-guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     BooksDetailsComponent,
     BookSearchComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    AddBookComponent,
+    EditBookComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

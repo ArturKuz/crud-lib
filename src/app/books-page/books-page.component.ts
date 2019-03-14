@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
 import { Book } from '../books/book';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-books-page',
@@ -14,7 +15,10 @@ export class BooksPageComponent implements OnInit {
   books: Book[];
   selectedBook: Book;
 
-  constructor(private bookService: BookService, private formBuilder: FormBuilder) { }
+  constructor(
+    private bookService: BookService,
+    private formBuilder: FormBuilder,
+    private router: Router) { }
 
   // addForm: FormGroup;
   // btnvisibility = true;
@@ -22,13 +26,6 @@ export class BooksPageComponent implements OnInit {
   ngOnInit() {
 
     this.getBooks();
-
-    // this.addForm = this.formBuilder.group({
-    //   id: [],
-    //   b_title: ['', Validators.required],
-    //   b_author: ['', [Validators.required, Validators.maxLength(10)]],
-    //   b_lahg: ['', [Validators.required, Validators.maxLength(10)]]
-    // });
   }
 
   getBooks(): void {
@@ -37,13 +34,23 @@ export class BooksPageComponent implements OnInit {
   }
 
 
-  add(title: string): void {
-    title = title.trim();
-    if (!title) { return; }
-    this.bookService.addBook({ title } as Book)
-      .subscribe(book => {
-        this.books.push(book);
-      });
+  // add(title: string): void {
+  //   title = title.trim();
+  //   if (!title) { return; }
+  //   this.bookService.addBook({ title } as Book)
+  //     .subscribe(book => {
+  //       this.books.push(book);
+  //     });
+  // }
+  add(): void {
+    this.router.navigate(['add-book']);
+  };
+
+
+  edit(book: Book): void {
+    localStorage.removeItem('editBookId');
+    localStorage.setItem('editBookId', book.id.toString());
+    this.router.navigate(['edit-book']);
   }
 
   delete(book: Book): void {

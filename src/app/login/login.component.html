@@ -1,3 +1,13 @@
-<p>
-  login works!
-</p>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <input matInput placeholder="Username" formControlName="email" name="username" required>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input matInput placeholder="Password" formControlName="password" type="password" name="password" required></td>
+    </tr></table>
+  <button type="submit" color="primary">Login</button>
+</form>
