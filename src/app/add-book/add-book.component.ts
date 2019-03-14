@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 import { BookService } from '../book.service';
 
 
@@ -11,7 +11,7 @@ import { BookService } from '../book.service';
 })
 export class AddBookComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder,private router: Router, private bookService: BookService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private bookService: BookService) { }
 
   addForm: FormGroup;
 

@@ -44,7 +44,7 @@ export class BooksPageComponent implements OnInit {
   // }
   add(): void {
     this.router.navigate(['add-book']);
-  };
+  }
 
 
   edit(book: Book): void {
