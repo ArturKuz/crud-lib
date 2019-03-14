@@ -7,6 +7,7 @@
   </section>
   <section class="row">
     <ul class="list__header bg--light-gray">
+        <li class="list__header-item t--dark-gray">Title</li>
       <li class="list__header-item t--dark-gray">Title</li>
       <li class="list__header-item t--dark-gray">Author</li>
       <li class="list__header-item t--dark-gray">Language</li>
@@ -19,6 +20,7 @@
         <li class="list__item" *ngFor="let book of books" >
           <a class="link" routerLink="/detail/{{ book?.id }}">
             <ul class="list-inner">
+              <li class="list-inner__item t--white">{{ book.id }}</li>
               <li class="list-inner__item t--white">{{ book.title }}</li>
               <li class="list-inner__item t--white">{{ book.author }}</li>
               <li class="list-inner__item t--white">{{ book.language}}</li>

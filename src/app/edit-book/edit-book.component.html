@@ -1,36 +1,36 @@
 <section class="row">
-      <form [formGroup]="editForm" (ngSubmit)="onSubmit()" novalidate class="form">
-        <div class="form-group">
-          <label for="bookId">Book Id:</label>
-          <input type="number" formControlName="id" placeholder="Id" name="bookId" class="form-control" id="bookId">
-        </div>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()" novalidate class="form">
+    <div class="form-group">
+      <label for="id">Book Id:</label>
+      <input type="number" formControlName="id" [(ngModel)]="book.id" placeholder="Id" name="bookId" class="form-control" id="id" readonly>
+    </div>
 
-        <div class="form-group">
-          <label for="bookName">Book Name:</label>
-          <input formControlName="b_title" placeholder="Book Name" name="bookName" class="form-control" id="bookName">
-          <div class="alert  alert-danger" *ngIf="editForm.get('b_title').hasError('required') && editForm.get('title').touched">
-            Book Name is required
-          </div>
-        </div>
+    <div class="form-group">
+      <label for="bookName">Book Name:</label>
+      <input formControlName="title" placeholder="Book Name" name="bookName" class="form-control" id="bookName">
+      <div class="alert  alert-danger"
+        *ngIf="editForm.get('title').hasError('required') && editForm.get('title').touched">
+        Book Name is required
+      </div>
+    </div>
 
-        <div class="form-group">
-          <label for="bookAuthor">Book Author:</label>
-          <input formControlName="b_author" placeholder="Book Author" name="bookAuthor" class="form-control" id="bookAuthor">
-          <div class="alert  alert-danger" *ngIf="editForm.get('b_author').hasError('maxlength') && editForm.get('author').touched">
-            Book Author is required and should less than 9 characters.
-          </div>
-        </div>
+    <div class="form-group">
+      <label for="bookAuthor">Book Author:</label>
+      <input formControlName="author" placeholder="Book Author" name="bookAuthor" class="form-control" id="bookAuthor">
+      <div class="alert  alert-danger"
+        *ngIf="editForm.get('author').hasError('required') && editForm.get('author').touched">
+        Book Author is required and should less than 9 characters.
+      </div>
+    </div>
 
-        <div class="form-group">
-          <label for="bookLang">book Lang:</label>
-          <input formControlName="b_lang" placeholder="Book Lang" name="bookLang" class="form-control" id="bookLang">
-          <div class="alert  alert-danger" *ngIf=" editForm.get('b_lang').hasError('maxlength') && editForm.get('lang').touched">
-            Lang is required and should less than 3 characters.
-          </div>
-        </div>
-        <button class="btn btn-success" [disabled]='editForm.invalid' >Save</button>
-
-
-
-       </form>
-    </section>
+    <div class="form-group">
+      <label for="bookLang">book Lang:</label>
+      <input formControlName="language" placeholder="Book Lang" name="bookLang" class="form-control" id="bookLang">
+      <div class="alert  alert-danger"
+        *ngIf=" editForm.get('language').hasError('required') && editForm.get('language').touched">
+        Lang is required and should less than 3 characters.
+      </div>
+    </div>
+    <button class="btn btn-success" [disabled]='editForm.invalid'>Save</button>
+  </form>
+</section>

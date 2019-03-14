@@ -12,7 +12,6 @@ import {first} from 'rxjs/operators';
 })
 export class EditBookComponent implements OnInit {
 
-  book: Book;
   editForm: FormGroup;
 
   constructor(
@@ -21,46 +20,46 @@ export class EditBookComponent implements OnInit {
     private router: Router) { }
 
 
-    ngOnInit() {
-      let bookId = window.localStorage.getItem('editBookId');
-      if (!bookId) {
-        alert('Invalid action.'),
-        this.router.navigate(['books']);
-        return;
-      }
-      this.editForm = this.formBuilder.group({
-        id: [''],
-        b_title: ['', Validators.required],
-        b_author: ['', Validators.required],
-        b_lang: ['', Validators.required],
-      });
-      this.bookService.getBook(+bookId);
-      // НЕ известно что писать
+  ngOnInit() {
+      // нужно ли window??
+    let bookId = window.localStorage.getItem("editBookId");
+    if(!bookId) {
+      alert("Invalid action.")
+      this.router.navigate(['books']);
+      return;
+      }; 
+      
+  
+    this.editForm = this.formBuilder.group({
+      id: [''],
+      title: ['', Validators.required],
+      author: ['', Validators.required],
+      language: ['', Validators.required],
+    });
+
+    // не понятно откуда data, заменил на book
+    this.bookService.getBook(+bookId)
+     .subscribe( book => {
+        this.editForm.setValue(book);
       // .subscribe( data => {
       //   this.editForm.setValue(data.result);
-      // });
-          // console.log( bookId);
-          // console.log( book.id);
-          // console.log( bookId.title);
-    }
-
-// НЕ понятно после второй строки
-        onSubmit() {
-          this.bookService.updateBook(this.editForm.value)
-            .pipe(first())
-            .subscribe(
-              data => {
-                if (data.status === 200) {
-                  alert('User updated successfully.');
-                  this.router.navigate(['list-user']);
-                } else {
-                  alert(data.message);
-                }
-              },
-              error => {
-                alert(error);
-              });
-        }
-
+      });
+  }
+  onSubmit() {
+    this.bookService.updateBook(this.editForm.value);
+    this.router.navigate(['books']);
+      // .pipe(first())
+      // .subscribe(
+      //   data => {
+      //     if(data.status === 200) {
+      //       alert('User updated successfully.');
+      //       this.router.navigate(['list-user']);
+      //     }else {
+      //       alert(data.message);
+      //     }
+      //   },
+      //   error => {
+      //     alert(error);
+        };
 }
 

@@ -11,23 +11,30 @@ import { BookService } from '../book.service';
 })
 export class AddBookComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private bookService: BookService) { }
+  constructor(
+    private formBuilder: FormBuilder, 
+    private router: Router, 
+    private bookService: BookService) { }
 
   addForm: FormGroup;
 
   ngOnInit() {
     this.addForm = this.formBuilder.group({
-      id: [],
-      b_title: ['', Validators.required],
-      b_author: ['', Validators.required],
-      b_lang: ['', Validators.required],
+      // id: [],
+      title: ['', Validators.required],
+      author: ['', Validators.required],
+      language: ['', Validators.required],
     });
   }
 
-  onSubmit() {
-    this.bookService.addBook(this.addForm.value)
-      .subscribe( book => {
-        this.router.navigate(['list-user']);
-      });
+  onSubmit() {  
+    console.log('Create book');  
+    this.bookService.addBook(this.addForm.value)  
+      .subscribe( book => {  
+        this.router.navigate(['books']);  
+      },  
+      error => {  
+        alert(error);  
+      });  
   }
 }
