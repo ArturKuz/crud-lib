@@ -1,7 +1,6 @@
 .p-search {
   text-align: center;
   position: relative;
-  border-bottom: 1px solid rgba(125, 156, 178, 0.7);
   margin-bottom: 2rem;
   min-height: 100px;
 }
@@ -15,6 +14,7 @@
 }
 .p-search .p-search__box:focus {
   border-color: #607d8b;
+  background-color: #fff;
 }
 .p-search .p-search__result {
   display: flex;
@@ -27,7 +27,6 @@
   z-index: 2;
   background: rgba(96, 125, 139, 0.9);
   border-radius: 3px;
-  left: calc(45%);
 }
 .p-search .p-search__result-item {
   font-size: 1.5rem;

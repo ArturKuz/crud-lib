@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./books-page.component.less']
 })
 export class BooksPageComponent implements OnInit {
-
+  showBtn = false;
   books: Book[];
   selectedBook: Book;
 
@@ -26,7 +26,14 @@ export class BooksPageComponent implements OnInit {
   ngOnInit() {
 
     this.getBooks();
+
+    let role = localStorage.getItem('currentUser');
+    if (role=="Admin") {
+      this.showBtn = true;
+    }
   }
+
+
 
   getBooks(): void {
     this.bookService.getBooks()
@@ -44,13 +51,6 @@ export class BooksPageComponent implements OnInit {
   // }
   add(): void {
     this.router.navigate(['add-book']);
-  }
-
-
-  edit(book: Book): void {
-    localStorage.removeItem('editBookId');
-    localStorage.setItem('editBookId', book.id.toString());
-    this.router.navigate(['edit-book']);
   }
 
   delete(book: Book): void {

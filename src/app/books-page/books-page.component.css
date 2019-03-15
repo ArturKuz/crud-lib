@@ -1,12 +1,17 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+  width: 75%;
+}
 .grid {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50%;
+  flex-basis: 60%;
   margin: 0 auto;
 }
-.grid .row {
-  flex-basis: 50%;
+.grid--sm {
+  flex-basis: 20%;
 }
 .grid .list__header {
   display: flex;
@@ -16,6 +21,8 @@
 }
 .grid .list__header-item {
   flex-basis: 33%;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 .grid .list {
   height: 70vh;
@@ -51,11 +58,30 @@
   padding: 5px 10px;
   margin: 2% 5%;
 }
-.grid .btn--delete:hover {
+.grid .btn--red {
   background: #B28DA5;
+  border: 3px solid #B28DA5;
+  transition: all 0.5s;
+  color: #eee;
 }
-.grid .btn--add:hover {
+.grid .btn--red:hover {
+  background: #c9aebf;
+  border-color: #c9aebf;
+}
+.grid .btn--green {
+  color: #eee;
   background: #8CB287;
+  border: 3px solid #8CB287;
+  transition: all 0.5s;
+}
+.grid .btn--green:hover {
+  background: #b2ceae;
+  border-color: #b2ceae;
+}
+.grid .link,
+.grid .link:hover {
+  text-decoration: none;
+  color: #eee;
 }
 .grid .bg--light-gray {
   background-color: #eee;

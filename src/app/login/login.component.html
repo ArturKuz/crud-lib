@@ -1,13 +1,23 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <table class="example-full-width" cellspacing="0">
-    <tr>
-      <td>
-        <input matInput placeholder="Username" formControlName="email" name="username" required>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <input matInput placeholder="Password" formControlName="password" type="password" name="password" required></td>
-    </tr></table>
-  <button type="submit" color="primary">Login</button>
+<form class="form " [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <label class="label" for="username">Your email</label>
+  <input
+    class="input row"
+    matInput
+
+    formControlName="email"
+    name="username"
+    required
+  />
+  <label class="label" for="password">Password</label>
+  <input
+    class="input row"
+    matInput
+
+    formControlName="password"
+    type="password"
+    name="password"
+    required
+  />
+
+  <button class="btn btn--green" type="submit" color="primary">Login</button>
 </form>

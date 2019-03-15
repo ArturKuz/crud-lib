@@ -16,6 +16,7 @@
   margin-top: 0;
 }
 .grid .list__item {
+  font-size: 1.5rem;
   padding: 5%;
 }
 .flex {
@@ -25,13 +26,20 @@
   justify-content: space-around;
 }
 .btn {
+  width: 8rem;
+  font-size: 1.5rem;
   padding: 5px 10px;
+  margin: 2% 5%;
 }
-.btn--back:hover {
+.btn--red {
   background: #B28DA5;
+  border: 3px solid #B28DA5;
+  transition: all 0.5s;
+  color: #eee;
 }
-.btn--save:hover {
-  background: #8CB287;
+.btn--red:hover {
+  background: #c9aebf;
+  border-color: #c9aebf;
 }
 .bg--light-gray {
   background-color: #eee;
@@ -41,6 +49,9 @@
 }
 .t--dark-gray {
   color: #607D8B;
+}
+.t--light-brown {
+  color: #757575;
 }
 .t--white {
   color: #fff;

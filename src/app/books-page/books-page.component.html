@@ -1,42 +1,46 @@
-<main class=" grid">
-  <section class="row  bg--light-gray">
-    <button class="btn btn--add" (click)="add()">
-      add book
-    </button>
 
-  </section>
-  <section class="row">
-    <ul class="list__header bg--light-gray">
+<main class="container">
+  <div class=" grid grid--sm">
+    <app-book-search></app-book-search>
+  </div>
+  <div class=" grid">
+    <section class="row  bg--light-gray">
+      <button *ngIf="showBtn"  class="btn btn--green" (click)="add()">
+        add book
+      </button>
+
+    </section>
+    <section class="row">
+      <ul class="list__header bg--light-gray">
+          <li class="list__header-item t--dark-gray">Id</li>
         <li class="list__header-item t--dark-gray">Title</li>
-      <li class="list__header-item t--dark-gray">Title</li>
-      <li class="list__header-item t--dark-gray">Author</li>
-      <li class="list__header-item t--dark-gray">Language</li>
-    </ul>
-  </section>
-  <section class="row">
-
-    <div class="row">
-      <ul class="list bg--light-gray" *ngIf="books">
-        <li class="list__item" *ngFor="let book of books" >
-          <a class="link" routerLink="/detail/{{ book?.id }}">
-            <ul class="list-inner">
-              <li class="list-inner__item t--white">{{ book.id }}</li>
-              <li class="list-inner__item t--white">{{ book.title }}</li>
-              <li class="list-inner__item t--white">{{ book.author }}</li>
-              <li class="list-inner__item t--white">{{ book.language}}</li>
-            </ul>
-          </a>
-
-          <button class="btn btn--delete" title="delete book" (click)="delete(book)">
-            Delete
-          </button>
-          <button class="btn btn--edit" title="delete book" (click)="edit(book)">
-            Edit
-          </button>
-        </li>
+        <li class="list__header-item t--dark-gray">Author</li>
+        <li class="list__header-item t--dark-gray">Language</li>
       </ul>
-    </div>
-  </section>
+    </section>
+    <section class="row">
 
+      <div class="row">
+        <ul class="list bg--light-gray" *ngIf="books">
+          <li class="list__item" *ngFor="let book of books" >
+            <a class="link" routerLink="/detail/{{ book?.id }}">
+              <ul class="list-inner">
+                <li class="list-inner__item t--white">{{ book.id }}</li>
+                <li class="list-inner__item t--white">{{ book.title }}</li>
+                <li class="list-inner__item t--white">{{ book.author }}</li>
+                <li class="list-inner__item t--white">{{ book.language}}</li>
+              </ul>
+            </a>
 
+            <button *ngIf="showBtn" class="btn btn--red" title="delete book" (click)="delete(book)">
+              Delete
+            </button>
+            <a *ngIf="showBtn" class="link btn btn--green " routerLink="/edit-book/{{ book?.id }}">
+              Edit
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
 </main>

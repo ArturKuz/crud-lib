@@ -1,5 +1,6 @@
 
 .p-header{
+  position: relative;
   // min-height: 130px;
   text-align: center;
 
@@ -7,4 +8,25 @@
     font-size: 3rem;
     margin-top: 1rem
   }
+
+   .btn {
+    padding: 5px 10px;
+    margin: 2% 5%;
+
+
+    &--black{
+      position: absolute;
+      top: -15px;
+      right: 150px;
+      color: #fff;
+      background:#000;
+      border: 3px solid #000;
+      transition: all 0.5s;
+      &:hover{
+        color: #000;
+        background:#fff;
+      }
+    }
+  }
 }
+

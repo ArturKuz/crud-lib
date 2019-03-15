@@ -1,13 +1,12 @@
 <div class="p-search" id="search-component">
-  <label class="lable">
-    Book Search
-    <input
+  <label class="lable" for="search-box"> Book Search </label>
+  <input
       class="p-search__box"
       #searchBox
       id="search-box"
+      name="search-box"
       (input)="search(searchBox.value)"
     />
-  </label>
   <ul class="p-search__result">
     <li class="p-search__result-item" *ngFor="let book of (books$ | async)">
       <a class="p-search__result-link" routerLink="/detail/{{ book.id }}">

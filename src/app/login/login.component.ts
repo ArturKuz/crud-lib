@@ -26,11 +26,16 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-    if (this.loginForm.controls.email.value == 'admin@admin.com' && this.loginForm.controls.password.value == 'admin') {
-      localStorage.setItem('currentUser', USERS[0].role)
+
+    let user = USERS.find(u => u.email == this.loginForm.controls.email.value && u.password == this.loginForm.controls.password.value);
+
+    if (user) {
+      localStorage.setItem('currentUser', user.role);
       this.router.navigate(['books']);
     } else {
       this.invalidLogin = true;
     }
+
+    console.log('Is invalid login or password', this.invalidLogin)
   }
 }
