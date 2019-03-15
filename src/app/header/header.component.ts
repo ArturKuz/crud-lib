@@ -8,15 +8,21 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  // showBtn = false;
+
 
   constructor( private router: Router) { }
 
   ngOnInit() {
-    // let user = localStorage.getItem('currentUser');
-    // if (user) {
-    //   this.showBtn = true;
-    // }
+
+    }
+
+  isLoggedIn() {
+    if (localStorage.getItem('currentUser')) {
+      return true;
+    }
+    {
+      return false;
+    }
   }
 
   logOut() {

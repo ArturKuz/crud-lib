@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {USERS} from "../users/mock-users";
+import {USERS} from '../users/mock-users';
 
 @Component({
   selector: 'app-login',
@@ -36,6 +36,6 @@ export class LoginComponent implements OnInit {
       this.invalidLogin = true;
     }
 
-    console.log('Is invalid login or password', this.invalidLogin)
+    console.log('Is invalid login or password', this.invalidLogin);
   }
 }

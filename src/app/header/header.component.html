@@ -1,4 +1,4 @@
 <header class="p-header">
     <h1 class="title">Book`s list</h1>
-    <button class="btn btn--black"  (click)="logOut()">Logout</button>
+    <button class="btn btn--black" *ngIf="isLoggedIn()"   (click)="logOut()">Logout</button>
 </header>
